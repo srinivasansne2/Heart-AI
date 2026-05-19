@@ -8,22 +8,21 @@ function App() {
   const [risk, setRisk] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // First Model
+  // First AI Model
 
   const handlePrediction = () => {
 
-    // Dummy frontend prediction
     // Replace with Flask API later
 
     setPrediction("YES");
     setRisk(null);
   };
 
-  // Second Model
+  // Second .h5 Model
 
   const handleRiskAnalysis = () => {
 
-    // Dummy .h5 result
+    // Replace with second ML model later
 
     setRisk("82%");
   };
@@ -51,6 +50,7 @@ function App() {
           {/* Desktop Menu */}
 
           <div className="space-x-8 hidden md:flex text-lg">
+
             <a href="#" className="hover:text-blue-200 transition">
               Home
             </a>
@@ -62,6 +62,7 @@ function App() {
             <a href="#" className="hover:text-blue-200 transition">
               Contact
             </a>
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -111,11 +112,21 @@ function App() {
 
       {/* Hero Section */}
 
-      <section className="bg-gradient-to-r from-[#0B2E6D] via-[#1C4E9E] to-[#2563eb] text-white py-24">
+      <section className="bg-gradient-to-r from-[#0B2E6D] via-[#1C4E9E] to-[#2563eb] text-white py-24 relative overflow-hidden">
 
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        {/* Background Glow */}
 
-          {/* Left */}
+        <div className="absolute inset-0 opacity-10">
+
+          <div className="absolute top-20 left-20 w-72 h-72 bg-white rounded-full blur-3xl"></div>
+
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-300 rounded-full blur-3xl"></div>
+
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+
+          {/* Left Side */}
 
           <motion.div
             initial={{ x: -120, opacity: 0 }}
@@ -135,12 +146,13 @@ function App() {
             </h1>
 
             <p className="mt-8 text-blue-100 text-lg leading-relaxed">
-              Advanced AI-powered cardiovascular disease prediction platform.
+              Advanced AI-powered cardiovascular disease prediction platform
+              using Machine Learning and healthcare analytics.
             </p>
 
           </motion.div>
 
-          {/* Animated Heart Card */}
+          {/* REAL HUMAN HEART SECTION */}
 
           <motion.div
             animate={{ y: [0, -20, 0] }}
@@ -151,38 +163,115 @@ function App() {
             className="flex justify-center"
           >
 
-            <div className="bg-white/10 backdrop-blur-xl p-12 rounded-[35px] shadow-2xl border border-white/20 text-center w-full max-w-md">
+            <div className="relative bg-white/10 backdrop-blur-xl p-12 rounded-[35px] shadow-2xl border border-white/20 text-center w-full max-w-md overflow-hidden">
 
-              <div className="relative flex justify-center items-center h-52">
+              {/* Background Glow */}
 
-                {/* Rotating Ring */}
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-500/10 to-cyan-400/10"></div>
 
-                <div className="absolute w-44 h-44 border-4 border-red-300 rounded-full animate-spin opacity-30"></div>
+              {/* Floating Red Glow */}
 
-                {/* Pulse Ring */}
+              <div className="absolute w-72 h-72 bg-red-500/20 rounded-full blur-3xl -top-20 -left-20 animate-pulse"></div>
 
-                <div className="absolute w-40 h-40 bg-red-400 rounded-full opacity-20 animate-ping"></div>
+              <div className="absolute w-60 h-60 bg-cyan-300/10 rounded-full blur-3xl -bottom-20 -right-20 animate-pulse"></div>
 
-                {/* Heart */}
+              {/* Heart Animation Area */}
 
-                <div className="w-36 h-36 bg-white rounded-full flex items-center justify-center shadow-2xl animate-pulse z-10">
+              <div className="relative flex justify-center items-center h-72">
+
+                {/* Rotating Outer Ring */}
+
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  className="absolute w-64 h-64 border border-red-300/30 rounded-full"
+                />
+
+                {/* Rotating Second Ring */}
+
+                <motion.div
+                  animate={{ rotate: -360 }}
+                  transition={{
+                    duration: 15,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  className="absolute w-52 h-52 border border-cyan-300/20 rounded-full"
+                />
+
+                {/* Pulse Circle */}
+
+                <div className="absolute w-44 h-44 bg-red-500/20 rounded-full animate-ping"></div>
+
+                {/* Real Human Heart */}
+
+                <motion.div
+                  animate={{
+                    scale: [1, 1.08, 1]
+                  }}
+                  transition={{
+                    duration: 1,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="relative z-10"
+                >
 
                   <img
-                    src="https://cdn-icons-png.flaticon.com/512/2966/2966486.png"
-                    alt="Human Heart"
-                    className="w-24 h-24 object-contain"
+                    src="/heart.png"
+                    alt="Real Human Heart"
+                    className="w-52 h-52 object-contain drop-shadow-[0_0_35px_rgba(255,0,0,0.6)]"
                   />
 
-                </div>
+                </motion.div>
+
+                {/* ECG Line */}
+
+                <motion.div
+                  initial={{ x: -150 }}
+                  animate={{ x: 150 }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 2,
+                    ease: "linear"
+                  }}
+                  className="absolute bottom-5"
+                >
+
+                  <svg
+                    width="250"
+                    height="60"
+                    viewBox="0 0 250 60"
+                    fill="none"
+                  >
+
+                    <path
+                      d="M0 30 H45 L60 15 L80 45 L100 10 L120 30 H250"
+                      stroke="#7dd3fc"
+                      strokeWidth="3"
+                      fill="none"
+                      strokeLinecap="round"
+                    />
+
+                  </svg>
+
+                </motion.div>
 
               </div>
 
-              <h2 className="text-4xl font-bold mt-8">
+              {/* Text */}
+
+              <h2 className="text-4xl font-bold mt-4 relative z-10">
                 AI Health Scan
               </h2>
 
-              <p className="mt-5 text-blue-100 leading-relaxed">
-                Smart cardiovascular disease analysis powered by Machine Learning.
+              <p className="mt-5 text-blue-100 leading-relaxed relative z-10">
+                Smart cardiovascular disease analysis powered by advanced
+                Machine Learning and AI prediction systems.
               </p>
 
             </div>
@@ -378,7 +467,7 @@ function App() {
                 AI model successfully analyzed patient medical data.
               </p>
 
-              {/* Show Second Button */}
+              {/* Second Model Button */}
 
               {prediction === "YES" && (
 
@@ -395,7 +484,7 @@ function App() {
 
             </div>
 
-            {/* Second Model Result */}
+            {/* Risk Result */}
 
             {risk && (
 
@@ -412,8 +501,6 @@ function App() {
                 <p className="text-7xl font-bold mt-8 text-red-300">
                   {risk}
                 </p>
-
-                {/* Progress Bar */}
 
                 <div className="w-full bg-white/20 h-5 rounded-full mt-10 overflow-hidden">
 

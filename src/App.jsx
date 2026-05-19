@@ -28,10 +28,6 @@ function App() {
             </a>
 
             <a href="#" className="hover:text-blue-200 transition">
-              Dataset
-            </a>
-
-            <a href="#" className="hover:text-blue-200 transition">
               Contact
             </a>
           </div>
@@ -42,6 +38,8 @@ function App() {
       {/* Hero Section */}
 
       <section className="bg-gradient-to-r from-[#0B2E6D] via-[#1C4E9E] to-[#2563eb] text-white py-24 relative overflow-hidden">
+
+        {/* Background Blur Effects */}
 
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-20 w-72 h-72 bg-white rounded-full blur-3xl"></div>
@@ -96,7 +94,7 @@ function App() {
 
           </motion.div>
 
-          {/* Animated AI Card */}
+          {/* Animated Heart Card */}
 
           <motion.div
             animate={{ y: [0, -20, 0] }}
@@ -109,23 +107,25 @@ function App() {
 
             <div className="bg-white/10 backdrop-blur-xl p-12 rounded-[35px] shadow-2xl border border-white/20 text-center w-full max-w-md">
 
-              <div className="relative flex justify-center items-center h-48">
+              <div className="relative flex justify-center items-center h-52">
 
-                {/* Outer Pulse */}
+                {/* Rotating Ring */}
 
-                <div className="absolute w-44 h-44 rounded-full bg-red-400 opacity-20 animate-ping"></div>
+                <div className="absolute w-44 h-44 border-4 border-red-300 rounded-full animate-spin opacity-30"></div>
 
-                {/* Middle Circle */}
+                {/* Pulse Ring */}
 
-                <div className="absolute w-36 h-36 rounded-full bg-red-500 opacity-30"></div>
+                <div className="absolute w-40 h-40 bg-red-400 rounded-full opacity-20 animate-ping"></div>
 
-                {/* Heart */}
+                {/* Heart Container */}
 
-                <div className="w-28 h-28 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center shadow-2xl animate-pulse">
+                <div className="w-36 h-36 bg-white rounded-full flex items-center justify-center shadow-2xl animate-pulse z-10">
 
-                  <span className="text-6xl">
-                    ❤️
-                  </span>
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/2966/2966486.png"
+                    alt="Human Heart"
+                    className="w-24 h-24 object-contain"
+                  />
 
                 </div>
 
@@ -174,23 +174,17 @@ function App() {
 
           <div className="grid md:grid-cols-2 gap-7">
 
-            {/* Age */}
-
             <input
               type="number"
               placeholder="Age (Days)"
               className="p-5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
-            {/* Height */}
-
             <input
               type="number"
               placeholder="Height (cm)"
               className="p-5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-
-            {/* Weight */}
 
             <input
               type="number"
@@ -217,15 +211,11 @@ function App() {
               </option>
             </select>
 
-            {/* Systolic */}
-
             <input
               type="number"
               placeholder="Systolic Blood Pressure"
               className="p-5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-
-            {/* Diastolic */}
 
             <input
               type="number"
@@ -317,7 +307,7 @@ function App() {
               </option>
             </select>
 
-            {/* Activity */}
+            {/* Physical Activity */}
 
             <select
               defaultValue=""
@@ -441,72 +431,6 @@ function App() {
         </div>
 
       </motion.section>
-
-      {/* Dataset Section */}
-
-      <section className="px-6 pb-24">
-
-        <div className="max-w-6xl mx-auto bg-white rounded-[35px] shadow-2xl p-12 border border-gray-100">
-
-          <div className="text-center">
-
-            <h2 className="text-4xl font-bold text-[#0B2E6D]">
-              Dataset & AI Model
-            </h2>
-
-            <p className="text-gray-500 mt-5 text-lg">
-              This project uses a cardiovascular disease dataset for Machine
-              Learning-based prediction analysis.
-            </p>
-
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mt-14">
-
-            <div className="bg-blue-50 p-8 rounded-3xl border border-blue-100">
-
-              <h3 className="text-2xl font-bold text-[#0B2E6D]">
-                Dataset
-              </h3>
-
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Kaggle cardiovascular disease dataset containing patient
-                medical records and cardiovascular disease labels.
-              </p>
-
-            </div>
-
-            <div className="bg-blue-50 p-8 rounded-3xl border border-blue-100">
-
-              <h3 className="text-2xl font-bold text-[#0B2E6D]">
-                Machine Learning
-              </h3>
-
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                AI prediction model trained using medical features including
-                blood pressure, cholesterol, glucose, and lifestyle data.
-              </p>
-
-            </div>
-
-            <div className="bg-blue-50 p-8 rounded-3xl border border-blue-100">
-
-              <h3 className="text-2xl font-bold text-[#0B2E6D]">
-                Prediction
-              </h3>
-
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                The system predicts whether cardiovascular disease is present
-                and estimates overall heart attack risk percentage.
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
 
       {/* Footer */}
 

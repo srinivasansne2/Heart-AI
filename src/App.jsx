@@ -1,29 +1,29 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 function App() {
 
-  // First Model Result
   const [prediction, setPrediction] = useState(null);
-
-  // Second Model Result
   const [risk, setRisk] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // Run First Prediction
+  // First Model
+
   const handlePrediction = () => {
 
-    // Dummy logic for frontend demo
-    // Later connect Flask API
+    // Dummy frontend prediction
+    // Replace with Flask API later
 
     setPrediction("YES");
     setRisk(null);
   };
 
-  // Run Second .h5 Model
+  // Second Model
+
   const handleRiskAnalysis = () => {
 
-    // Dummy percentage
-    // Later connect second ML model
+    // Dummy .h5 result
 
     setRisk("82%");
   };
@@ -39,22 +39,77 @@ function App() {
         transition={{ duration: 0.6 }}
         className="bg-[#0B2E6D] text-white p-5 shadow-lg sticky top-0 z-50"
       >
+
         <div className="max-w-7xl mx-auto flex justify-between items-center">
+
+          {/* Logo */}
 
           <h1 className="text-3xl font-bold tracking-wide">
             CardioSense AI
           </h1>
 
+          {/* Desktop Menu */}
+
           <div className="space-x-8 hidden md:flex text-lg">
-            <a href="#">Home</a>
-            <a href="#">Prediction</a>
-            <a href="#">Contact</a>
+            <a href="#" className="hover:text-blue-200 transition">
+              Home
+            </a>
+
+            <a href="#" className="hover:text-blue-200 transition">
+              Prediction
+            </a>
+
+            <a href="#" className="hover:text-blue-200 transition">
+              Contact
+            </a>
           </div>
 
+          {/* Mobile Menu Button */}
+
+          <button
+            className="md:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+
+            {menuOpen ? <X size={32} /> : <Menu size={32} />}
+
+          </button>
+
         </div>
+
+        {/* Mobile Dropdown */}
+
+        {menuOpen && (
+
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="md:hidden mt-5 bg-white text-[#0B2E6D] rounded-2xl p-5 shadow-xl"
+          >
+
+            <div className="flex flex-col space-y-5 text-lg font-semibold">
+
+              <a href="#" onClick={() => setMenuOpen(false)}>
+                Home
+              </a>
+
+              <a href="#" onClick={() => setMenuOpen(false)}>
+                Prediction
+              </a>
+
+              <a href="#" onClick={() => setMenuOpen(false)}>
+                Contact
+              </a>
+
+            </div>
+
+          </motion.div>
+
+        )}
+
       </motion.nav>
 
-      {/* Hero */}
+      {/* Hero Section */}
 
       <section className="bg-gradient-to-r from-[#0B2E6D] via-[#1C4E9E] to-[#2563eb] text-white py-24">
 
@@ -85,7 +140,7 @@ function App() {
 
           </motion.div>
 
-          {/* Right Card */}
+          {/* Animated Heart Card */}
 
           <motion.div
             animate={{ y: [0, -20, 0] }}
@@ -104,11 +159,11 @@ function App() {
 
                 <div className="absolute w-44 h-44 border-4 border-red-300 rounded-full animate-spin opacity-30"></div>
 
-                {/* Pulse */}
+                {/* Pulse Ring */}
 
                 <div className="absolute w-40 h-40 bg-red-400 rounded-full opacity-20 animate-ping"></div>
 
-                {/* Human Heart */}
+                {/* Heart */}
 
                 <div className="w-36 h-36 bg-white rounded-full flex items-center justify-center shadow-2xl animate-pulse z-10">
 
@@ -138,7 +193,7 @@ function App() {
 
       </section>
 
-      {/* Form */}
+      {/* Form Section */}
 
       <section className="py-24 px-6">
 
@@ -155,6 +210,8 @@ function App() {
             </p>
 
           </div>
+
+          {/* Form Grid */}
 
           <div className="grid md:grid-cols-2 gap-7">
 
@@ -184,13 +241,8 @@ function App() {
                 Select Gender
               </option>
 
-              <option value="1">
-                Male
-              </option>
-
-              <option value="0">
-                Female
-              </option>
+              <option value="1">Male</option>
+              <option value="0">Female</option>
             </select>
 
             <input
@@ -213,17 +265,9 @@ function App() {
                 Select Cholesterol Level
               </option>
 
-              <option value="1">
-                Normal
-              </option>
-
-              <option value="2">
-                Above Normal
-              </option>
-
-              <option value="3">
-                Well Above Normal
-              </option>
+              <option value="1">Normal</option>
+              <option value="2">Above Normal</option>
+              <option value="3">Well Above Normal</option>
             </select>
 
             <select
@@ -234,17 +278,9 @@ function App() {
                 Select Glucose Level
               </option>
 
-              <option value="1">
-                Normal
-              </option>
-
-              <option value="2">
-                Above Normal
-              </option>
-
-              <option value="3">
-                Well Above Normal
-              </option>
+              <option value="1">Normal</option>
+              <option value="2">Above Normal</option>
+              <option value="3">Well Above Normal</option>
             </select>
 
             <select
@@ -255,13 +291,8 @@ function App() {
                 Smoking Habit
               </option>
 
-              <option value="1">
-                Yes
-              </option>
-
-              <option value="0">
-                No
-              </option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
             </select>
 
             <select
@@ -272,13 +303,8 @@ function App() {
                 Alcohol Intake
               </option>
 
-              <option value="1">
-                Yes
-              </option>
-
-              <option value="0">
-                No
-              </option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
             </select>
 
             <select
@@ -289,13 +315,8 @@ function App() {
                 Physical Activity
               </option>
 
-              <option value="1">
-                Active
-              </option>
-
-              <option value="0">
-                Inactive
-              </option>
+              <option value="1">Active</option>
+              <option value="0">Inactive</option>
             </select>
 
           </div>
@@ -357,7 +378,7 @@ function App() {
                 AI model successfully analyzed patient medical data.
               </p>
 
-              {/* Show Button ONLY if YES */}
+              {/* Show Second Button */}
 
               {prediction === "YES" && (
 
@@ -374,7 +395,7 @@ function App() {
 
             </div>
 
-            {/* Second Model Output */}
+            {/* Second Model Result */}
 
             {risk && (
 
@@ -392,7 +413,7 @@ function App() {
                   {risk}
                 </p>
 
-                {/* Progress */}
+                {/* Progress Bar */}
 
                 <div className="w-full bg-white/20 h-5 rounded-full mt-10 overflow-hidden">
 

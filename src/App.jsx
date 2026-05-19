@@ -28,7 +28,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f4f8ff] overflow-hidden">
+    <div className="min-h-screen bg-[#f4f8ff] overflow-x-hidden">
 
       {/* ================= NAVBAR ================= */}
 
@@ -39,11 +39,11 @@ function App() {
         className="bg-[#0B2E6D] text-white sticky top-0 z-50 shadow-xl"
       >
 
-        <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex justify-between items-center">
 
           {/* Logo */}
 
-          <h1 className="text-3xl font-bold tracking-wide">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-wide">
             CardioSense AI
           </h1>
 
@@ -118,13 +118,13 @@ function App() {
 
         <div className="absolute inset-0">
 
-          <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-cyan-300/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 left-0 w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-cyan-300/10 rounded-full blur-3xl"></div>
 
-          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-red-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-red-500/10 rounded-full blur-3xl"></div>
 
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 py-20 md:py-28 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-28 grid lg:grid-cols-2 gap-16 items-center relative z-10">
 
           {/* LEFT CONTENT */}
 
@@ -132,7 +132,7 @@ function App() {
             initial={{ x: -80, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1 }}
-            className="text-white"
+            className="text-white text-center lg:text-left"
           >
 
             <div className="inline-flex items-center gap-3 bg-white/10 border border-white/20 px-5 py-2 rounded-full mb-8 backdrop-blur-md">
@@ -145,7 +145,7 @@ function App() {
 
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold leading-tight break-words">
 
               Heart Disease
 
@@ -155,7 +155,7 @@ function App() {
 
             </h1>
 
-            <p className="mt-8 text-blue-100 text-lg leading-relaxed max-w-xl">
+            <p className="mt-8 text-blue-100 text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
 
               Advanced cardiovascular disease prediction platform powered by
               Artificial Intelligence and Machine Learning healthcare analytics.
@@ -164,19 +164,19 @@ function App() {
 
             {/* Buttons */}
 
-            <div className="flex flex-wrap gap-5 mt-10">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-5 mt-10">
 
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-[#0B2E6D] px-8 py-4 rounded-2xl font-semibold shadow-2xl"
+                className="bg-white text-[#0B2E6D] px-6 md:px-8 py-4 rounded-2xl font-semibold shadow-2xl"
               >
                 Start Prediction
               </motion.button>
 
               <motion.button
                 whileHover={{ scale: 1.05 }}
-                className="border border-white/30 px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-md"
+                className="border border-white/30 px-6 md:px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-md"
               >
                 Learn More
               </motion.button>
@@ -196,7 +196,7 @@ function App() {
 
             {/* Main Glass Card */}
 
-            <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-[35px] shadow-2xl p-8 w-[500px] h-[500px] overflow-hidden flex flex-col justify-center items-center">
+            <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-[35px] shadow-2xl p-5 md:p-8 w-full max-w-[500px] h-auto md:h-[500px] overflow-hidden flex flex-col justify-center items-center">
 
               {/* Background Glow */}
 
@@ -204,7 +204,7 @@ function App() {
 
               {/* Heart Area */}
 
-              <div className="relative flex justify-center items-center h-[420px]">
+              <div className="relative flex justify-center items-center h-[320px] md:h-[420px]">
 
                 {/* Outer Ring */}
 
@@ -215,7 +215,7 @@ function App() {
                     repeat: Infinity,
                     ease: "linear"
                   }}
-                  className="absolute w-[320px] h-[320px] border border-cyan-300/20 rounded-full"
+                  className="absolute w-[220px] h-[220px] md:w-[320px] md:h-[320px] border border-cyan-300/20 rounded-full"
                 />
 
                 {/* Inner Ring */}
@@ -227,12 +227,12 @@ function App() {
                     repeat: Infinity,
                     ease: "linear"
                   }}
-                  className="absolute w-[260px] h-[260px] border border-red-300/20 rounded-full"
+                  className="absolute w-[180px] h-[180px] md:w-[260px] md:h-[260px] border border-red-300/20 rounded-full"
                 />
 
                 {/* Pulse Circle */}
 
-                <div className="absolute w-[220px] h-[220px] bg-red-500/20 rounded-full animate-ping"></div>
+                <div className="absolute w-[160px] h-[160px] md:w-[220px] md:h-[220px] bg-red-500/20 rounded-full animate-ping"></div>
 
                 {/* Heart Container */}
 
@@ -253,7 +253,7 @@ function App() {
                   <img
                     src="/heart.png"
                     alt="Human Heart"
-                    className="w-[220px] md:w-[240px] object-contain drop-shadow-[0_0_35px_rgba(255,0,0,0.7)]"
+                    className="w-[150px] sm:w-[180px] md:w-[240px] object-contain drop-shadow-[0_0_35px_rgba(255,0,0,0.7)]"
                   />
 
                 </motion.div>
@@ -262,7 +262,7 @@ function App() {
 
                 <div className="absolute bottom-2 w-full flex justify-center">
 
-                  <div className="relative w-[260px] h-[60px] overflow-hidden">
+                  <div className="relative w-[220px] sm:w-[260px] h-[60px] overflow-hidden">
 
                     {/* Base Line */}
 
@@ -315,13 +315,13 @@ function App() {
 
               {/* Text */}
 
-              <div className="relative z-10 text-center mt-2">
+              <div className="relative z-10 text-center mt-2 px-2">
 
-                <h2 className="text-4xl font-bold text-white">
+                <h2 className="text-2xl md:text-4xl font-bold text-white break-words">
                   AI Health Scan
                 </h2>
 
-                <p className="mt-5 text-blue-100 leading-relaxed">
+                <p className="mt-5 text-blue-100 leading-relaxed text-sm md:text-base">
                   Smart cardiovascular disease analysis powered by advanced
                   Machine Learning and AI prediction systems.
                 </p>
@@ -338,17 +338,17 @@ function App() {
 
       {/* ================= FORM SECTION ================= */}
 
-      <section className="py-24 px-6">
+      <section className="py-20 px-4 sm:px-6">
 
-        <div className="max-w-7xl mx-auto bg-white rounded-[35px] shadow-2xl border border-gray-100 p-10 md:p-14">
+        <div className="max-w-7xl mx-auto bg-white rounded-[35px] shadow-2xl border border-gray-100 p-6 md:p-14">
 
           <div className="text-center mb-14">
 
-            <h2 className="text-5xl font-bold text-[#0B2E6D]">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#0B2E6D]">
               Patient Health Information
             </h2>
 
-            <p className="mt-5 text-gray-500 text-lg">
+            <p className="mt-5 text-gray-500 text-base md:text-lg">
               Enter patient medical details for AI-based prediction analysis.
             </p>
 
@@ -358,13 +358,13 @@ function App() {
 
           <div className="grid md:grid-cols-2 gap-7">
 
-            <input type="number" placeholder="Age (Days)" className="p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500" />
+            <input type="number" placeholder="Age (Days)" className="w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500" />
 
-            <input type="number" placeholder="Height (cm)" className="p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500" />
+            <input type="number" placeholder="Height (cm)" className="w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500" />
 
-            <input type="number" placeholder="Weight (kg)" className="p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500" />
+            <input type="number" placeholder="Weight (kg)" className="w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500" />
 
-            <select defaultValue="" className="p-5 border border-gray-300 rounded-2xl text-gray-700 outline-none focus:ring-2 focus:ring-blue-500">
+            <select defaultValue="" className="w-full p-5 border border-gray-300 rounded-2xl text-gray-700 outline-none focus:ring-2 focus:ring-blue-500">
 
               <option value="" disabled hidden>
                 Select Gender
@@ -375,66 +375,9 @@ function App() {
 
             </select>
 
-            <input type="number" placeholder="Systolic Blood Pressure" className="p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500" />
+            <input type="number" placeholder="Systolic Blood Pressure" className="w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500" />
 
-            <input type="number" placeholder="Diastolic Blood Pressure" className="p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500" />
-
-            <select defaultValue="" className="p-5 border border-gray-300 rounded-2xl text-gray-700 outline-none focus:ring-2 focus:ring-blue-500">
-
-              <option value="" disabled hidden>
-                Select Cholesterol Level
-              </option>
-
-              <option value="1">Normal</option>
-              <option value="2">Above Normal</option>
-              <option value="3">Well Above Normal</option>
-
-            </select>
-
-            <select defaultValue="" className="p-5 border border-gray-300 rounded-2xl text-gray-700 outline-none focus:ring-2 focus:ring-blue-500">
-
-              <option value="" disabled hidden>
-                Select Glucose Level
-              </option>
-
-              <option value="1">Normal</option>
-              <option value="2">Above Normal</option>
-              <option value="3">Well Above Normal</option>
-
-            </select>
-
-            <select defaultValue="" className="p-5 border border-gray-300 rounded-2xl text-gray-700 outline-none focus:ring-2 focus:ring-blue-500">
-
-              <option value="" disabled hidden>
-                Smoking Habit
-              </option>
-
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-
-            </select>
-
-            <select defaultValue="" className="p-5 border border-gray-300 rounded-2xl text-gray-700 outline-none focus:ring-2 focus:ring-blue-500">
-
-              <option value="" disabled hidden>
-                Alcohol Intake
-              </option>
-
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-
-            </select>
-
-            <select defaultValue="" className="p-5 border border-gray-300 rounded-2xl text-gray-700 outline-none focus:ring-2 focus:ring-blue-500">
-
-              <option value="" disabled hidden>
-                Physical Activity
-              </option>
-
-              <option value="1">Active</option>
-              <option value="0">Inactive</option>
-
-            </select>
+            <input type="number" placeholder="Diastolic Blood Pressure" className="w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500" />
 
           </div>
 
@@ -446,7 +389,7 @@ function App() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handlePrediction}
-              className="bg-gradient-to-r from-[#0B2E6D] to-[#2563eb] text-white px-12 py-5 rounded-2xl text-xl font-semibold shadow-2xl"
+              className="bg-gradient-to-r from-[#0B2E6D] to-[#2563eb] text-white px-8 md:px-12 py-5 rounded-2xl text-lg md:text-xl font-semibold shadow-2xl"
             >
               Predict Heart Disease
             </motion.button>
@@ -464,14 +407,14 @@ function App() {
         <motion.section
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
-          className="pb-24 px-6"
+          className="pb-24 px-4 sm:px-6"
         >
 
-          <div className="max-w-5xl mx-auto bg-gradient-to-r from-[#1C4E9E] to-[#0B2E6D] text-white rounded-[35px] shadow-2xl p-12">
+          <div className="max-w-5xl mx-auto bg-gradient-to-r from-[#1C4E9E] to-[#0B2E6D] text-white rounded-[35px] shadow-2xl p-6 md:p-12">
 
             <div className="text-center">
 
-              <h2 className="text-5xl font-bold">
+              <h2 className="text-3xl md:text-5xl font-bold">
                 Prediction Result
               </h2>
 
@@ -479,13 +422,13 @@ function App() {
 
             {/* Prediction */}
 
-            <div className="mt-12 bg-white/10 backdrop-blur-md p-10 rounded-3xl text-center">
+            <div className="mt-12 bg-white/10 backdrop-blur-md p-6 md:p-10 rounded-3xl text-center">
 
-              <h3 className="text-3xl font-semibold">
+              <h3 className="text-2xl md:text-3xl font-semibold">
                 Heart Disease Prediction
               </h3>
 
-              <p className={`text-7xl font-bold mt-8 ${
+              <p className={`text-5xl md:text-7xl font-bold mt-8 ${
                 prediction === "YES"
                   ? "text-red-300"
                   : "text-green-300"
@@ -493,7 +436,7 @@ function App() {
                 {prediction}
               </p>
 
-              <p className="mt-6 text-blue-100 text-lg">
+              <p className="mt-6 text-blue-100 text-base md:text-lg">
                 AI model successfully analyzed patient medical data.
               </p>
 
@@ -503,7 +446,7 @@ function App() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleRiskAnalysis}
-                  className="mt-10 bg-red-500 hover:bg-red-600 transition px-10 py-4 rounded-2xl text-xl font-semibold shadow-2xl"
+                  className="mt-10 bg-red-500 hover:bg-red-600 transition px-6 md:px-10 py-4 rounded-2xl text-lg md:text-xl font-semibold shadow-2xl"
                 >
                   Run Risk Analysis Model
                 </motion.button>
@@ -519,14 +462,14 @@ function App() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="mt-12 bg-white/10 backdrop-blur-md p-10 rounded-3xl text-center"
+                className="mt-12 bg-white/10 backdrop-blur-md p-6 md:p-10 rounded-3xl text-center"
               >
 
-                <h3 className="text-3xl font-semibold">
+                <h3 className="text-2xl md:text-3xl font-semibold">
                   Heart Attack Risk
                 </h3>
 
-                <p className="text-7xl font-bold mt-8 text-red-300">
+                <p className="text-5xl md:text-7xl font-bold mt-8 text-red-300">
                   {risk}
                 </p>
 
@@ -543,7 +486,7 @@ function App() {
 
                 </div>
 
-                <p className="mt-8 text-blue-100 text-lg leading-relaxed">
+                <p className="mt-8 text-blue-100 text-base md:text-lg leading-relaxed">
                   Elevated cardiovascular risk detected. Further clinical
                   evaluation is recommended.
                 </p>
@@ -560,13 +503,13 @@ function App() {
 
       {/* ================= FOOTER ================= */}
 
-      <footer className="bg-[#0B2E6D] text-white py-12 text-center">
+      <footer className="bg-[#0B2E6D] text-white py-12 text-center px-4">
 
-        <h2 className="text-3xl font-bold">
+        <h2 className="text-2xl md:text-3xl font-bold">
           CardioSense AI
         </h2>
 
-        <p className="mt-4 text-blue-200 text-lg">
+        <p className="mt-4 text-blue-200 text-base md:text-lg">
           AI-Based Heart Disease Prediction Platform
         </p>
 

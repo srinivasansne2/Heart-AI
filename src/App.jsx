@@ -1,6 +1,33 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 function App() {
+
+  // First Model Result
+  const [prediction, setPrediction] = useState(null);
+
+  // Second Model Result
+  const [risk, setRisk] = useState(null);
+
+  // Run First Prediction
+  const handlePrediction = () => {
+
+    // Dummy logic for frontend demo
+    // Later connect Flask API
+
+    setPrediction("YES");
+    setRisk(null);
+  };
+
+  // Run Second .h5 Model
+  const handleRiskAnalysis = () => {
+
+    // Dummy percentage
+    // Later connect second ML model
+
+    setRisk("82%");
+  };
+
   return (
     <div className="min-h-screen bg-[#f4f8ff] overflow-hidden">
 
@@ -19,36 +46,21 @@ function App() {
           </h1>
 
           <div className="space-x-8 hidden md:flex text-lg">
-            <a href="#" className="hover:text-blue-200 transition">
-              Home
-            </a>
-
-            <a href="#" className="hover:text-blue-200 transition">
-              Prediction
-            </a>
-
-            <a href="#" className="hover:text-blue-200 transition">
-              Contact
-            </a>
+            <a href="#">Home</a>
+            <a href="#">Prediction</a>
+            <a href="#">Contact</a>
           </div>
 
         </div>
       </motion.nav>
 
-      {/* Hero Section */}
+      {/* Hero */}
 
-      <section className="bg-gradient-to-r from-[#0B2E6D] via-[#1C4E9E] to-[#2563eb] text-white py-24 relative overflow-hidden">
+      <section className="bg-gradient-to-r from-[#0B2E6D] via-[#1C4E9E] to-[#2563eb] text-white py-24">
 
-        {/* Background Blur Effects */}
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-300 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
-
-          {/* Left Content */}
+          {/* Left */}
 
           <motion.div
             initial={{ x: -120, opacity: 0 }}
@@ -67,34 +79,13 @@ function App() {
               </span>
             </h1>
 
-            <p className="mt-8 text-blue-100 text-lg leading-relaxed max-w-xl">
-              Advanced cardiovascular disease prediction using Artificial
-              Intelligence and Machine Learning models trained on real-world
-              medical datasets.
+            <p className="mt-8 text-blue-100 text-lg leading-relaxed">
+              Advanced AI-powered cardiovascular disease prediction platform.
             </p>
-
-            <div className="flex gap-5 mt-10 flex-wrap">
-
-              <motion.button
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-[#0B2E6D] px-8 py-4 rounded-2xl font-semibold shadow-2xl"
-              >
-                Start Prediction
-              </motion.button>
-
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                className="border border-white/30 bg-white/10 backdrop-blur-md px-8 py-4 rounded-2xl"
-              >
-                Learn More
-              </motion.button>
-
-            </div>
 
           </motion.div>
 
-          {/* Animated Heart Card */}
+          {/* Right Card */}
 
           <motion.div
             animate={{ y: [0, -20, 0] }}
@@ -113,11 +104,11 @@ function App() {
 
                 <div className="absolute w-44 h-44 border-4 border-red-300 rounded-full animate-spin opacity-30"></div>
 
-                {/* Pulse Ring */}
+                {/* Pulse */}
 
                 <div className="absolute w-40 h-40 bg-red-400 rounded-full opacity-20 animate-ping"></div>
 
-                {/* Heart Container */}
+                {/* Human Heart */}
 
                 <div className="w-36 h-36 bg-white rounded-full flex items-center justify-center shadow-2xl animate-pulse z-10">
 
@@ -136,8 +127,7 @@ function App() {
               </h2>
 
               <p className="mt-5 text-blue-100 leading-relaxed">
-                Smart cardiovascular disease analysis with instant prediction
-                results powered by Machine Learning.
+                Smart cardiovascular disease analysis powered by Machine Learning.
               </p>
 
             </div>
@@ -148,14 +138,9 @@ function App() {
 
       </section>
 
-      {/* Form Section */}
+      {/* Form */}
 
-      <motion.section
-        initial={{ opacity: 0, y: 80 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="py-24 px-6"
-      >
+      <section className="py-24 px-6">
 
         <div className="max-w-7xl mx-auto bg-white p-10 md:p-14 rounded-[35px] shadow-2xl border border-gray-100">
 
@@ -166,8 +151,7 @@ function App() {
             </h2>
 
             <p className="text-gray-500 mt-5 text-lg">
-              Enter patient medical details for AI-based cardiovascular
-              prediction analysis.
+              Enter patient medical details for AI-based prediction analysis.
             </p>
 
           </div>
@@ -177,26 +161,24 @@ function App() {
             <input
               type="number"
               placeholder="Age (Days)"
-              className="p-5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-5 border border-gray-300 rounded-2xl"
             />
 
             <input
               type="number"
               placeholder="Height (cm)"
-              className="p-5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-5 border border-gray-300 rounded-2xl"
             />
 
             <input
               type="number"
               placeholder="Weight (kg)"
-              className="p-5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-5 border border-gray-300 rounded-2xl"
             />
-
-            {/* Gender */}
 
             <select
               defaultValue=""
-              className="p-5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+              className="p-5 border border-gray-300 rounded-2xl text-gray-700"
             >
               <option value="" disabled hidden>
                 Select Gender
@@ -214,20 +196,18 @@ function App() {
             <input
               type="number"
               placeholder="Systolic Blood Pressure"
-              className="p-5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-5 border border-gray-300 rounded-2xl"
             />
 
             <input
               type="number"
               placeholder="Diastolic Blood Pressure"
-              className="p-5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-5 border border-gray-300 rounded-2xl"
             />
-
-            {/* Cholesterol */}
 
             <select
               defaultValue=""
-              className="p-5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+              className="p-5 border border-gray-300 rounded-2xl text-gray-700"
             >
               <option value="" disabled hidden>
                 Select Cholesterol Level
@@ -246,11 +226,9 @@ function App() {
               </option>
             </select>
 
-            {/* Glucose */}
-
             <select
               defaultValue=""
-              className="p-5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+              className="p-5 border border-gray-300 rounded-2xl text-gray-700"
             >
               <option value="" disabled hidden>
                 Select Glucose Level
@@ -269,11 +247,9 @@ function App() {
               </option>
             </select>
 
-            {/* Smoking */}
-
             <select
               defaultValue=""
-              className="p-5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+              className="p-5 border border-gray-300 rounded-2xl text-gray-700"
             >
               <option value="" disabled hidden>
                 Smoking Habit
@@ -288,11 +264,9 @@ function App() {
               </option>
             </select>
 
-            {/* Alcohol */}
-
             <select
               defaultValue=""
-              className="p-5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+              className="p-5 border border-gray-300 rounded-2xl text-gray-700"
             >
               <option value="" disabled hidden>
                 Alcohol Intake
@@ -307,11 +281,9 @@ function App() {
               </option>
             </select>
 
-            {/* Physical Activity */}
-
             <select
               defaultValue=""
-              className="p-5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+              className="p-5 border border-gray-300 rounded-2xl text-gray-700"
             >
               <option value="" disabled hidden>
                 Physical Activity
@@ -328,109 +300,125 @@ function App() {
 
           </div>
 
-          {/* Button */}
+          {/* Predict Button */}
 
           <div className="text-center mt-14">
 
             <motion.button
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
+              onClick={handlePrediction}
               className="bg-gradient-to-r from-[#0B2E6D] to-[#2563eb] text-white px-12 py-5 rounded-2xl text-xl font-semibold shadow-2xl"
             >
-              Analyze Health
+              Predict Heart Disease
             </motion.button>
 
           </div>
 
         </div>
 
-      </motion.section>
+      </section>
 
       {/* Result Section */}
 
-      <motion.section
-        initial={{ opacity: 0, y: 80 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="pb-24 px-6"
-      >
+      {prediction && (
 
-        <div className="max-w-6xl mx-auto bg-gradient-to-r from-[#1C4E9E] to-[#0B2E6D] text-white p-12 rounded-[35px] shadow-2xl">
+        <motion.section
+          initial={{ opacity: 0, y: 80 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="pb-24 px-6"
+        >
 
-          <div className="text-center">
+          <div className="max-w-5xl mx-auto bg-gradient-to-r from-[#1C4E9E] to-[#0B2E6D] text-white p-12 rounded-[35px] shadow-2xl">
 
-            <h2 className="text-5xl font-bold">
-              AI Prediction Result
-            </h2>
+            <div className="text-center">
 
-            <p className="mt-5 text-blue-100 text-lg">
-              Machine Learning prediction generated from patient medical data.
-            </p>
+              <h2 className="text-5xl font-bold">
+                Prediction Result
+              </h2>
 
-          </div>
+            </div>
 
-          <div className="grid md:grid-cols-2 gap-10 mt-14">
+            <div className="mt-12 bg-white/10 p-10 rounded-3xl text-center">
 
-            {/* Prediction */}
-
-            <motion.div
-              whileHover={{ scale: 1.04 }}
-              className="bg-white/10 p-10 rounded-3xl backdrop-blur-xl border border-white/10"
-            >
-
-              <h3 className="text-2xl font-semibold">
+              <h3 className="text-3xl font-semibold">
                 Heart Disease Prediction
               </h3>
 
-              <p className="text-6xl font-bold text-red-300 mt-8 animate-pulse">
-                YES
+              <p className={`text-7xl font-bold mt-8 ${
+                prediction === "YES"
+                  ? "text-red-300"
+                  : "text-green-300"
+              }`}>
+                {prediction}
               </p>
 
-              <p className="mt-6 text-blue-100 leading-relaxed">
-                The AI model detected a higher probability of cardiovascular
-                disease based on the provided health parameters.
+              <p className="mt-6 text-blue-100 text-lg">
+                AI model successfully analyzed patient medical data.
               </p>
 
-            </motion.div>
+              {/* Show Button ONLY if YES */}
 
-            {/* Risk */}
+              {prediction === "YES" && (
 
-            <motion.div
-              whileHover={{ scale: 1.04 }}
-              className="bg-white/10 p-10 rounded-3xl backdrop-blur-xl border border-white/10"
-            >
+                <motion.button
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={handleRiskAnalysis}
+                  className="mt-10 bg-red-500 hover:bg-red-600 transition text-white px-10 py-4 rounded-2xl text-xl font-semibold shadow-2xl"
+                >
+                  Run Risk Analysis Model
+                </motion.button>
 
-              <h3 className="text-2xl font-semibold">
-                Heart Attack Risk
-              </h3>
+              )}
 
-              <p className="text-6xl font-bold mt-8">
-                82%
-              </p>
+            </div>
 
-              <div className="w-full bg-white/20 h-4 rounded-full mt-8 overflow-hidden">
+            {/* Second Model Output */}
 
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: "82%" }}
-                  transition={{ duration: 2 }}
-                  className="h-4 bg-red-400 rounded-full"
-                ></motion.div>
+            {risk && (
 
-              </div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mt-12 bg-white/10 p-10 rounded-3xl text-center"
+              >
 
-              <p className="mt-6 text-blue-100 leading-relaxed">
-                Elevated cardiovascular risk detected. Further clinical
-                evaluation is recommended.
-              </p>
+                <h3 className="text-3xl font-semibold">
+                  Heart Attack Risk
+                </h3>
 
-            </motion.div>
+                <p className="text-7xl font-bold mt-8 text-red-300">
+                  {risk}
+                </p>
+
+                {/* Progress */}
+
+                <div className="w-full bg-white/20 h-5 rounded-full mt-10 overflow-hidden">
+
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: risk }}
+                    transition={{ duration: 2 }}
+                    className="h-5 bg-red-400 rounded-full"
+                  ></motion.div>
+
+                </div>
+
+                <p className="mt-8 text-blue-100 text-lg leading-relaxed">
+                  Elevated cardiovascular risk detected. Further clinical
+                  evaluation is recommended.
+                </p>
+
+              </motion.div>
+
+            )}
 
           </div>
 
-        </div>
+        </motion.section>
 
-      </motion.section>
+      )}
 
       {/* Footer */}
 

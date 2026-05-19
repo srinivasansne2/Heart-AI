@@ -8,7 +8,7 @@ function App() {
   const [risk, setRisk] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // First Model
+  // First AI Model
 
   const handlePrediction = () => {
 
@@ -18,7 +18,7 @@ function App() {
     setRisk(null);
   };
 
-  // Second Model
+  // Second .h5 Model
 
   const handleRiskAnalysis = () => {
 
@@ -194,112 +194,137 @@ function App() {
             className="flex justify-center"
           >
 
-            <div className="relative w-full max-w-[520px] h-[520px] flex items-center justify-center">
+            {/* Main Glass Card */}
 
-              {/* Outer Glow */}
+            <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-[35px] shadow-2xl p-8 w-[500px] h-[500px] overflow-hidden flex flex-col justify-center items-center">
 
-              <div className="absolute w-[420px] h-[420px] bg-red-500/20 rounded-full blur-3xl animate-pulse"></div>
+              {/* Background Glow */}
 
-              {/* Ring 1 */}
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-500/10 to-cyan-400/10"></div>
 
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 25,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-                className="absolute w-[440px] h-[440px] border border-cyan-300/20 rounded-full"
-              />
+              {/* Heart Area */}
 
-              {/* Ring 2 */}
+              <div className="relative flex justify-center items-center h-[420px]">
 
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{
-                  duration: 18,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-                className="absolute w-[360px] h-[360px] border border-red-300/20 rounded-full"
-              />
+                {/* Outer Ring */}
 
-              {/* Pulse Circle */}
-
-              <div className="absolute w-[280px] h-[280px] bg-red-500/20 rounded-full animate-ping"></div>
-
-              {/* Heart */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.06, 1]
-                }}
-                transition={{
-                  duration: 1.2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="relative z-10 flex items-center justify-center"
-              >
-
-                <img
-                  src="/heart.png"
-                  alt="Human Heart"
-                  className="w-[320px] md:w-[360px] object-contain drop-shadow-[0_0_50px_rgba(255,0,0,0.8)]"
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    duration: 25,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  className="absolute w-[320px] h-[320px] border border-cyan-300/20 rounded-full"
                 />
 
-              </motion.div>
+                {/* Inner Ring */}
 
-              {/* ECG Pulse */}
+                <motion.div
+                  animate={{ rotate: -360 }}
+                  transition={{
+                    duration: 18,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  className="absolute w-[260px] h-[260px] border border-red-300/20 rounded-full"
+                />
 
-              <div className="absolute bottom-10 w-full flex justify-center">
+                {/* Pulse Circle */}
 
-                <div className="relative w-[320px] h-[70px] overflow-hidden">
+                <div className="absolute w-[220px] h-[220px] bg-red-500/20 rounded-full animate-ping"></div>
 
-                  {/* Base Line */}
+                {/* Heart Container */}
 
-                  <div className="absolute top-1/2 left-0 w-full h-[2px] bg-cyan-300/20"></div>
+                <motion.div
+                  animate={{
+                    scale: [1, 1.05, 1]
+                  }}
+                  transition={{
+                    duration: 1.2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="relative z-10 "
+                >
 
-                  {/* Moving ECG */}
+                  {/* Heart Image */}
 
-                  <motion.svg
-                    initial={{ x: -340 }}
-                    animate={{ x: 340 }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 2.5,
-                      ease: "linear"
-                    }}
-                    width="340"
-                    height="70"
-                    viewBox="0 0 340 70"
-                    className="absolute top-0 left-0"
-                  >
+                  <img
+                    src="/heart.png"
+                    alt="Human Heart"
+                    className="w-[220px] md:w-[240px] object-contain drop-shadow-[0_0_35px_rgba(255,0,0,0.7)]"
+                  />
 
-                    <path
-                      d="M0 35 
-                         L40 35 
-                         L60 20 
-                         L80 55 
-                         L100 10 
-                         L120 35 
-                         L160 35 
-                         L180 25 
-                         L200 50 
-                         L220 15 
-                         L240 35 
-                         L340 35"
-                      stroke="#7dd3fc"
-                      strokeWidth="4"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      filter="drop-shadow(0px 0px 10px #7dd3fc)"
-                    />
+                </motion.div>
 
-                  </motion.svg>
+                {/* ECG Pulse */}
+
+                <div className="absolute bottom-2 w-full flex justify-center">
+
+                  <div className="relative w-[260px] h-[60px] overflow-hidden">
+
+                    {/* Base Line */}
+
+                    <div className="absolute top-1/2 left-0 w-full h-[2px] bg-cyan-300/20"></div>
+
+                    {/* Moving ECG */}
+
+                    <motion.svg
+                      initial={{ x: -280 }}
+                      animate={{ x: 280 }}
+                      transition={{
+                        repeat: Infinity,
+                        duration: 2.4,
+                        ease: "linear"
+                      }}
+                      width="280"
+                      height="60"
+                      viewBox="0 0 280 60"
+                      className="absolute top-0 left-0"
+                    >
+
+                      <path
+                        d="M0 30 
+                           L35 30 
+                           L50 18 
+                           L70 45 
+                           L90 10 
+                           L110 30 
+                           L145 30 
+                           L160 22 
+                           L180 42 
+                           L200 15 
+                           L220 30 
+                           L280 30"
+                        stroke="#7dd3fc"
+                        strokeWidth="4"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        filter="drop-shadow(0px 0px 10px #7dd3fc)"
+                      />
+
+                    </motion.svg>
+
+                  </div>
 
                 </div>
+
+              </div>
+
+              {/* Text */}
+
+              <div className="relative z-10 text-center mt-2">
+
+                <h2 className="text-4xl font-bold text-white">
+                  AI Health Scan
+                </h2>
+
+                <p className="mt-5 text-blue-100 leading-relaxed">
+                  Smart cardiovascular disease analysis powered by advanced
+                  Machine Learning and AI prediction systems.
+                </p>
 
               </div>
 

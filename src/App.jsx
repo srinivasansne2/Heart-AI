@@ -8,26 +8,52 @@ function App() {
   const [risk, setRisk] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // First AI Model
+  // ================= FORM DATA =================
+
+  const [formData, setFormData] = useState({
+    age: "",
+    height: "",
+    weight: "",
+    gender: "",
+    ap_hi: "",
+    ap_lo: "",
+    cholesterol: "",
+    gluc: "",
+    smoke: "",
+    alco: "",
+    active: "",
+  });
+
+  // ================= HANDLE INPUT =================
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // ================= FIRST MODEL =================
 
   const handlePrediction = () => {
 
-    // Replace with Flask API later
+    console.log(formData);
+
+    // Replace with Flask API
 
     setPrediction("YES");
     setRisk(null);
   };
 
-  // Second .h5 Model
+  // ================= SECOND MODEL =================
 
   const handleRiskAnalysis = () => {
-
-    // Replace with second ML model later
 
     setRisk("82%");
   };
 
   return (
+
     <div className="min-h-screen bg-[#f4f8ff] overflow-x-hidden">
 
       {/* ================= NAVBAR ================= */}
@@ -51,15 +77,15 @@ function App() {
 
           <div className="hidden md:flex items-center gap-10 text-lg">
 
-            <a href="#" className="hover:text-cyan-300 transition">
+            <a href="#home" className="hover:text-cyan-300 transition">
               Home
             </a>
 
-            <a href="#" className="hover:text-cyan-300 transition">
+            <a href="#prediction" className="hover:text-cyan-300 transition">
               Prediction
             </a>
 
-            <a href="#" className="hover:text-cyan-300 transition">
+            <a href="#contact" className="hover:text-cyan-300 transition">
               Contact
             </a>
 
@@ -90,15 +116,15 @@ function App() {
 
             <div className="flex flex-col gap-5 text-lg font-semibold">
 
-              <a href="#" onClick={() => setMenuOpen(false)}>
+              <a href="#home" onClick={() => setMenuOpen(false)}>
                 Home
               </a>
 
-              <a href="#" onClick={() => setMenuOpen(false)}>
+              <a href="#prediction" onClick={() => setMenuOpen(false)}>
                 Prediction
               </a>
 
-              <a href="#" onClick={() => setMenuOpen(false)}>
+              <a href="#contact" onClick={() => setMenuOpen(false)}>
                 Contact
               </a>
 
@@ -112,7 +138,10 @@ function App() {
 
       {/* ================= HERO SECTION ================= */}
 
-      <section className="relative bg-gradient-to-r from-[#0B2E6D] via-[#18428c] to-[#2563eb] overflow-hidden">
+      <section
+        id="home"
+        className="relative bg-gradient-to-r from-[#0B2E6D] via-[#18428c] to-[#2563eb] overflow-hidden"
+      >
 
         {/* Background Glow */}
 
@@ -166,17 +195,21 @@ function App() {
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-5 mt-10">
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-[#0B2E6D] px-6 md:px-8 py-4 rounded-2xl font-semibold shadow-2xl"
-              >
-                Start Prediction
-              </motion.button>
+              <a href="#prediction">
+
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-white text-[#0B2E6D] px-8 py-4 rounded-2xl font-semibold shadow-2xl"
+                >
+                  Start Prediction
+                </motion.button>
+
+              </a>
 
               <motion.button
                 whileHover={{ scale: 1.05 }}
-                className="border border-white/30 px-6 md:px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-md"
+                className="border border-white/30 px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-md"
               >
                 Learn More
               </motion.button>
@@ -194,11 +227,7 @@ function App() {
             className="flex justify-center"
           >
 
-            {/* Main Glass Card */}
-
             <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-[35px] shadow-2xl p-5 md:p-8 w-full max-w-[500px] h-auto md:h-[500px] overflow-hidden flex flex-col justify-center items-center">
-
-              {/* Background Glow */}
 
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-500/10 to-cyan-400/10"></div>
 
@@ -234,7 +263,7 @@ function App() {
 
                 <div className="absolute w-[160px] h-[160px] md:w-[220px] md:h-[220px] bg-red-500/20 rounded-full animate-ping"></div>
 
-                {/* Heart Container */}
+                {/* Heart */}
 
                 <motion.div
                   animate={{
@@ -245,10 +274,8 @@ function App() {
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
-                  className="relative z-10 "
+                  className="relative z-10"
                 >
-
-                  {/* Heart Image */}
 
                   <img
                     src="/heart.png"
@@ -257,59 +284,6 @@ function App() {
                   />
 
                 </motion.div>
-
-                {/* ECG Pulse */}
-
-                <div className="absolute bottom-2 w-full flex justify-center">
-
-                  <div className="relative w-[220px] sm:w-[260px] h-[60px] overflow-hidden">
-
-                    {/* Base Line */}
-
-                    <div className="absolute top-1/2 left-0 w-full h-[2px] bg-cyan-300/20"></div>
-
-                    {/* Moving ECG */}
-
-                    <motion.svg
-                      initial={{ x: -280 }}
-                      animate={{ x: 280 }}
-                      transition={{
-                        repeat: Infinity,
-                        duration: 2.4,
-                        ease: "linear"
-                      }}
-                      width="280"
-                      height="60"
-                      viewBox="0 0 280 60"
-                      className="absolute top-0 left-0"
-                    >
-
-                      <path
-                        d="M0 30 
-                           L35 30 
-                           L50 18 
-                           L70 45 
-                           L90 10 
-                           L110 30 
-                           L145 30 
-                           L160 22 
-                           L180 42 
-                           L200 15 
-                           L220 30 
-                           L280 30"
-                        stroke="#7dd3fc"
-                        strokeWidth="4"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        filter="drop-shadow(0px 0px 10px #7dd3fc)"
-                      />
-
-                    </motion.svg>
-
-                  </div>
-
-                </div>
 
               </div>
 
@@ -338,9 +312,14 @@ function App() {
 
       {/* ================= FORM SECTION ================= */}
 
-      <section className="py-20 px-4 sm:px-6">
+      <section
+        id="prediction"
+        className="py-20 px-4 sm:px-6"
+      >
 
         <div className="max-w-7xl mx-auto bg-white rounded-[35px] shadow-2xl border border-gray-100 p-6 md:p-14">
+
+          {/* Heading */}
 
           <div className="text-center mb-14">
 
@@ -354,19 +333,49 @@ function App() {
 
           </div>
 
-          {/* Form Grid */}
+          {/* FORM GRID */}
 
           <div className="grid md:grid-cols-2 gap-7">
 
-            <input type="number" placeholder="Age (Days)" className="w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500" />
+            <input
+              type="number"
+              name="age"
+              placeholder="Age (Days)"
+              value={formData.age}
+              onChange={handleChange}
+              className="w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500"
+            />
 
-            <input type="number" placeholder="Height (cm)" className="w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500" />
+            <input
+              type="number"
+              name="height"
+              placeholder="Height (cm)"
+              value={formData.height}
+              onChange={handleChange}
+              className="w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500"
+            />
 
-            <input type="number" placeholder="Weight (kg)" className="w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500" />
+            <input
+              type="number"
+              name="weight"
+              placeholder="Weight (kg)"
+              value={formData.weight}
+              onChange={handleChange}
+              className="w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500"
+            />
 
-            <select defaultValue="" className="w-full p-5 border border-gray-300 rounded-2xl text-gray-700 outline-none focus:ring-2 focus:ring-blue-500">
+            {/* Gender */}
 
-              <option value="" disabled hidden>
+            <select
+              name="gender"
+              value={formData.gender}
+              onChange={handleChange}
+              className={`w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white ${
+                formData.gender === "" ? "text-gray-400" : "text-black"
+              }`}
+            >
+
+              <option value="" disabled>
                 Select Gender
               </option>
 
@@ -375,13 +384,129 @@ function App() {
 
             </select>
 
-            <input type="number" placeholder="Systolic Blood Pressure" className="w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500" />
+            <input
+              type="number"
+              name="ap_hi"
+              placeholder="Systolic Blood Pressure"
+              value={formData.ap_hi}
+              onChange={handleChange}
+              className="w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500"
+            />
 
-            <input type="number" placeholder="Diastolic Blood Pressure" className="w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500" />
+            <input
+              type="number"
+              name="ap_lo"
+              placeholder="Diastolic Blood Pressure"
+              value={formData.ap_lo}
+              onChange={handleChange}
+              className="w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500"
+            />
+
+            {/* Cholesterol */}
+
+            <select
+              name="cholesterol"
+              value={formData.cholesterol}
+              onChange={handleChange}
+              className={`w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white ${
+                formData.cholesterol === "" ? "text-gray-400" : "text-black"
+              }`}
+            >
+
+              <option value="" disabled>
+                Select Cholesterol Level
+              </option>
+
+              <option value="1">Normal</option>
+              <option value="2">Above Normal</option>
+              <option value="3">Well Above Normal</option>
+
+            </select>
+
+            {/* Glucose */}
+
+            <select
+              name="gluc"
+              value={formData.gluc}
+              onChange={handleChange}
+              className={`w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white ${
+                formData.gluc === "" ? "text-gray-400" : "text-black"
+              }`}
+            >
+
+              <option value="" disabled>
+                Select Glucose Level
+              </option>
+
+              <option value="1">Normal</option>
+              <option value="2">Above Normal</option>
+              <option value="3">Well Above Normal</option>
+
+            </select>
+
+            {/* Smoking */}
+
+            <select
+              name="smoke"
+              value={formData.smoke}
+              onChange={handleChange}
+              className={`w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white ${
+                formData.smoke === "" ? "text-gray-400" : "text-black"
+              }`}
+            >
+
+              <option value="" disabled>
+                Select Smoking Habit
+              </option>
+
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+
+            </select>
+
+            {/* Alcohol */}
+
+            <select
+              name="alco"
+              value={formData.alco}
+              onChange={handleChange}
+              className={`w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white ${
+                formData.alco === "" ? "text-gray-400" : "text-black"
+              }`}
+            >
+
+              <option value="" disabled>
+                Select Alcohol Intake
+              </option>
+
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+
+            </select>
+
+            {/* Physical Activity */}
+
+            <select
+              name="active"
+              value={formData.active}
+              onChange={handleChange}
+              className={`w-full p-5 border border-gray-300 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white ${
+                formData.active === "" ? "text-gray-400" : "text-black"
+              }`}
+            >
+
+              <option value="" disabled>
+                Select Physical Activity
+              </option>
+
+              <option value="1">Active</option>
+              <option value="0">Inactive</option>
+
+            </select>
 
           </div>
 
-          {/* Button */}
+          {/* BUTTON */}
 
           <div className="text-center mt-14">
 
@@ -419,8 +544,6 @@ function App() {
               </h2>
 
             </div>
-
-            {/* Prediction */}
 
             <div className="mt-12 bg-white/10 backdrop-blur-md p-6 md:p-10 rounded-3xl text-center">
 
@@ -473,8 +596,6 @@ function App() {
                   {risk}
                 </p>
 
-                {/* Progress */}
-
                 <div className="w-full bg-white/20 h-5 rounded-full mt-10 overflow-hidden">
 
                   <motion.div
@@ -503,7 +624,10 @@ function App() {
 
       {/* ================= FOOTER ================= */}
 
-      <footer className="bg-[#0B2E6D] text-white py-12 text-center px-4">
+      <footer
+        id="contact"
+        className="bg-[#0B2E6D] text-white py-12 text-center px-4"
+      >
 
         <h2 className="text-2xl md:text-3xl font-bold">
           CardioSense AI
@@ -516,6 +640,7 @@ function App() {
       </footer>
 
     </div>
+
   );
 }
 
